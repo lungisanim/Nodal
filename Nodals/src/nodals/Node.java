@@ -6,7 +6,7 @@
 package nodals;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
 
 /**
  *
@@ -16,6 +16,7 @@ public class Node {
     int id;
     int parentID;
     String label;
+    Node left, right, root;
     
     public Node(int id, int parentId, String label){
         this.id = id;
@@ -33,6 +34,7 @@ public class Node {
     
     //output NodeA (id: 7000, parentID: 0)
     public void printOutput(){
+        Collections.sort(theList, Collections.reverseOrder());
         for (int i = 0; i < theList.size(); i++) {
             Node node = theList.get(i);
             outputStructure(node);
@@ -46,8 +48,11 @@ public class Node {
         System.out.println(node.label + " (" + "id: " + node.id + ", parentId: " + node.parentID  + ")");
     }
     
-   public boolean hasParent(Node node)
-   {
+   public boolean hasParent(Node node) {
        return theList.stream().anyMatch((nodes) -> (nodes.parentID == node.id));
+   }
+   
+   void printTree(ArrayList<Node> nodes) {
+       printOutput();
    }
 }
