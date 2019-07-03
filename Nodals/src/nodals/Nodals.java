@@ -5,6 +5,8 @@
  */
 package nodals;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author lungisanin
@@ -15,7 +17,9 @@ public class Nodals {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Hello World");
+        
     }
-    
+     public void outputStructure(String str){
+        System.out.println();
+    }
 }

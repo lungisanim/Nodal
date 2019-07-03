@@ -6,6 +6,7 @@
 package nodals;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -37,8 +38,16 @@ public class Node {
             outputStructure(node);
         }
     }
-    
+    //\t
     public void outputStructure(Node node){
+        if (hasParent(node)) {
+            System.out.println("  " + node.label + " (" + "id: " + node.id + ", parentId: " + node.parentID  + ")");
+        }
         System.out.println(node.label + " (" + "id: " + node.id + ", parentId: " + node.parentID  + ")");
     }
+    
+   public boolean hasParent(Node node)
+   {
+       return theList.stream().anyMatch((nodes) -> (nodes.parentID == node.id));
+   }
 }
