@@ -5,6 +5,8 @@
  */
 package nodals;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author lungisanin
@@ -18,5 +20,25 @@ public class Node {
         this.id = id;
         this.parentID = parentId;
         this.label = label;
+    }
+    
+    ArrayList<Node> theList = new ArrayList<>();
+    
+    public void addNodes(int id, int parentId, String label){
+        theList.forEach((Node item) -> {
+            theList.add(new Node(item.id, item.parentID, item.label));
+        });
+    }
+    
+    //output NodeA (id: 7000, parentID: 0)
+    public void printOutput(){
+        for (int i = 0; i < theList.size(); i++) {
+            Node node = theList.get(i);
+            outputStructure(node);
+        }
+    }
+    
+    public void outputStructure(Node node){
+        System.out.println(node.label + " (" + "id: " + node.id + ", parentId: " + node.parentID  + ")");
     }
 }
